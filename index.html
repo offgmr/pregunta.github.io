@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta importante</title>
+    <style>
+        body, html {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images-ng.pixai.art/images/orig/80021d9b-ea0a-4501-a433-2c2caf741723');
+            background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-attachment: fixed; /* La imagen se queda fija al hacer scroll */
+            transition: background-image 0.5s ease; /* Transición suave para el fondo */
+        }
+        .container {
+            text-align: center;
+            color: white; /* Para asegurar que el texto sea visible en el fondo */
+        }
+        .question {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        .button {
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            position: absolute;
+        }
+        .button-no {
+            left: 200px;
+            top: 100px;
+        }
+        .button-yes {
+            left: 50px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="question">¿Quieres ser mi skibidi?</div>
+    <div class="buttons">
+        <button class="button button-yes" onclick="mostrarRespuesta()">Sí</button>
+        <button class="button button-no" onmouseover="moverBotonNo()">No</button>
+    </div>
+</div>
+
+<script>
+    const margenInferior = 100;
+    const margenLateral = 120;
+    const movimientoMinimo = 50;
+
+    function moverBotonNo() {
+        const btnNo = document.querySelector('.button-no');
+        const maxTop = window.innerHeight - margenInferior;
+        const maxLeft = window.innerWidth - margenLateral;
+
+        let nuevoTop, nuevoLeft;
+        do {
+            nuevoTop = Math.floor(Math.random() * maxTop);
+            nuevoLeft = Math.floor(Math.random() * maxLeft);
+        } while (Math.abs(nuevoTop - btnNo.offsetTop) < movimientoMinimo || Math.abs(nuevoLeft - btnNo.offsetLeft) < movimientoMinimo);
+
+        btnNo.style.top = `${nuevoTop}px`;
+        btnNo.style.left = `${nuevoLeft}px`;
+    }
+
+    function mostrarRespuesta() {
+        alert("Sí uwuwuwuuw");
+    }
+</script>
+
+</body>
+</html>
